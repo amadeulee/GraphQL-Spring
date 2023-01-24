@@ -13,15 +13,14 @@ class ConverterTest {
     @Test
     public void convertToBook() {
         Converter converter = new Converter();
-        BookDTO bookDTO = new BookDTO("book-1", "Jogos Vorazes", 202, new AuthorDTO("author-1", "maria", "rita"));
+        BookDTO bookDTO = new BookDTO( "Jogos Vorazes", 202, new AuthorDTO("maria", "rita"));
+
 
         Book newBook = converter.convertToBook(bookDTO);
         Author newAuthor = converter.convertToAuthor(bookDTO.getAuthor());
 
 
-        System.out.println(newBook);
-        System.out.println(newAuthor);
-
-        assertEquals(newBook.getAuthorId(), newAuthor.getId());
+        assertEquals(newBook.getName(), "Jogos Vorazes");
+        assertEquals(newAuthor.getFirstName(), "maria");
     }
 }

@@ -42,11 +42,12 @@ public class BookController {
 
     @MutationMapping
     public Book createBook(@Argument BookDTO book) {
-        Book newBook = converter.convertToBook(book);
         Author newAuthor = converter.convertToAuthor(book.getAuthor());
-
-        bookRepository.add(newBook);
         authorRepository.add(newAuthor);
+
+        Book newBook = converter.convertToBook(book);
+        newBook.setAuthorId(authorRepository.getAuthorId(newAuthor));
+        bookRepository.add(newBook);
 
         return newBook;
     }

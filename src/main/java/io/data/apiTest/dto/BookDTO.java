@@ -1,20 +1,14 @@
 package io.data.apiTest.dto;
 
 public class BookDTO {
-    private String id;
-    private String name;
-    private int pageCount;
-    private AuthorDTO author;
+    private final String name;
+    private final int pageCount;
+    private final AuthorDTO author;
 
-    public BookDTO(String id, String name, int pageCount, AuthorDTO author) {
-        this.id = id;
+    public BookDTO(String name, int pageCount, AuthorDTO author) {
         this.name = name;
         this.pageCount = pageCount;
         this.author = author;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getName() {

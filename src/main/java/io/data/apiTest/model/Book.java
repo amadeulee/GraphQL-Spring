@@ -9,6 +9,11 @@ public class Book {
     private int pageCount;
     private String authorId;
 
+    public Book(String name, int pageCount) {
+        this.name = name;
+        this.pageCount = pageCount;
+    }
+
     public Book(String id, String name, int pageCount, String authorId) {
         this.id = id;
         this.name = name;
@@ -20,8 +25,20 @@ public class Book {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public String getAuthorId() {
         return authorId;
+    }
+
+    public void setAuthorId(String authorId) {
+        this.authorId = authorId;
     }
 
     @Override

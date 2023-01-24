@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BookRepository {
 
+    private static int index = 4;
     private final List<Book> books = new ArrayList<>(Arrays.asList(
             new Book("book-1", "Harry Potter and the Philosopher's Stone", 223, "author-1"),
             new Book("book-2", "Moby Dick", 635, "author-2"),
@@ -31,6 +32,8 @@ public class BookRepository {
     }
 
     public void add(Book book) {
+        book.setId("book-" + String.valueOf(index));
         books.add(book);
+        index++;
     }
 }

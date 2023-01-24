@@ -9,19 +9,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class Converter {
     public Book convertToBook(BookDTO bookDTO) {
-        String bookId = bookDTO.getId();
         String bookName = bookDTO.getName();
         int pageCount = bookDTO.getPageCount();
-        String authorId = bookDTO.getAuthor().getId();
 
-        return new Book(bookId, bookName, pageCount, authorId);
+        return new Book(bookName, pageCount);
     }
 
     public Author convertToAuthor(AuthorDTO authorDTO) {
-        String id = authorDTO.getId();
         String firstName = authorDTO.getFirstName();
         String lastname = authorDTO.getLastName();
 
-        return new Author(id, firstName, lastname);
+        return new Author(firstName, lastname);
     }
 }
